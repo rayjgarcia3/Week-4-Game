@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crystal Game HW</title>
+<style type="text/css">
+    .crystal-image {
+      width: 300px;
+      height: 300px;
+    }
+/*    .crysBtn {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }*/
+/*    .container {
+  background-color: #000;
+  opacity: 0.8;
+  margin-top: 100px;
+  min-height: 400px;
+}*/
+
+.whiteText {
+  /*opacity: 1;*/
+  color: #fff;
+}
+
+.large-text {
+  font-size: 40px;
+}
+
+.panel-title {
+  font-weight: bold;
+  color: #548;
+}
+.panel {
+  font-weight: bold;
+}
+
+.crystal1{
+  background: url(http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg) no-repeat center;
+  background-size: contain;
+  height: 125px;
+  width: 125px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.crystal2{
+  background: url(https://s-media-cache-ak0.pinimg.com/originals/e8/1d/f5/e81df52bf9020b0011c82b24c2496de5.jpg) no-repeat center;
+  background-size: contain;
+  height: 125px;
+  width: 125px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.crystal3{
+  background: url(http://www.crystalclearintentions.co.nz/wp-content/uploads/crystals.jpg) no-repeat center;
+  background-size: contain;
+  height: 125px;
+  width: 125px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.crystal4{
+  background: url(https://img1.etsystatic.com/049/0/10757639/il_570xN.740721225_k96g.jpg) no-repeat center;
+  background-size: contain;
+  height: 125px;
+  width: 125px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+  </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">  
+<script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body style="background-color:skyblue;">
+
+<body>
+    
+    
+    
+    <div class="jumbotron">
+     <div class="container">
+      <h1 class="text-center"><strong>Crystals Collector!</strong></h1>
+      <hr>
+      <p class="text-center"><strong>You will be given a random number at the start of the game.</strong></p>
+      <p class="text-center"><strong>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</strong></p>
+      <p class="text-center"><strong>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</strong></p>
+      <p class="text-center"><strong>The value of each crystal is hidden from you until you click on it.</strong>
+      <p class="text-center"><strong>Each time when the game starts, the game will change the values of each crystal.</strong>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-lg-4">  
+        <div class="panel panel-default">
+            <div class="panel-body">
+            <p><h1>Number to Guess: <span id="number-to-guess"></span></h1></p>
+            </div>    
+        </div>    
+    </div>    
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+            <p><h4><strong>Wins: <span id="wins">0</span></strong></h4></p>
+            <p><h4><strong>Losses: <span id="losses">0</span></strong></h4></p>
+            </div>
+        </div>    
+    </div>    
+<div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+            <p><h1><strong>Your total score is: <span id="total-score"></span></strong></h1></p>
+            </div>
+        </div>    
+    </div>    
+  </div>
+<div class="row">
+<div class="panel-body text-center" id="crystalBtn">
+        
+        <button id="crys1" class="crysBtn crystal1"><!-- <img src=""> --></button>
+        <button id="crys2" class="crysBtn crystal2"><!-- <img src=""> --></button>
+        <button id="crys3" class="crysBtn crystal3"><!-- <img src=""> --></button>
+        <button id="crys4" class="crysBtn crystal4"><!-- <img src=""> --></button>
+      </div>
+<!--     <div class="col-lg-3">
+      <div class="panel panel-default">
+       <div class="panel-body">
+        <img class="crystal-image" id="crystal1" value="100" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg">
+       </div>
+      </div>
+    </div>    
+  
+    <div class="col-lg-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <img class="crystal-image" id="crystal2" value="100" src="https://s-media-cache-ak0.pinimg.com/originals/e8/1d/f5/e81df52bf9020b0011c82b24c2496de5.jpg">
+        </div>
+       </div> 
+    </div>    
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+              <img class="crystal-image" id="crystal3" value="100" src="http://www.crystalclearintentions.co.nz/wp-content/uploads/crystals.jpg">
+            </div>
+        </div>
+    </div>          
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img class="crystal-image" src="https://img1.etsystatic.com/049/0/10757639/il_570xN.740721225_k96g.jpg">
+            </div>
+        </div>        
+    </div>    --> 
+    
+  </div>
+
+<SCRIPT TYPE="TEXT/JAVASCRIPT">
+  $(document).ready(function() { 
+
+//Variables//
+var crys1, crys2, crys3, crys4;
+var yourScore = 0;
+var win = 0;
+var lose = 0;
+var matchNumber = "";
+var nums = [];
+
+function Shuffle(arr) {
+  for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+  return arr;
+};
+
+function startGame() {
+  
+  $("#total-score").html("_");
+  $("#wins").html(win);
+  $("#losses").html(lose);
+  
+  matchNumber = Math.floor(Math.random() * 120) + 19;
+  $("#number-to-guess").html(matchNumber);
+ 
+//Assign values to crystal buttons//   
+  var values = new Array (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); 
+  var shuffled = Shuffle(values);
+  $('button').each(function (index, element) {
+      // console.log(element, index);
+    $(element).attr("data-crysValue", +shuffled[index]);   
+  });
+
+}; //END OF STARTGAME() FUNCTION
+
+function gameReset() {
+  nums = [];
+  yourScore = "";
+}
+
+startGame();
+
+$(document).on("click", "button", function() {
+  yourScore = 0;
+  var crystalBtn = $(this).attr("data-crysValue");
+  // console.log(crystalBtn);
+  nums.push(parseInt(crystalBtn));
+    
+for(var i=0; i < nums.length; i++){
+    yourScore += nums[i];
+    // console.log(nums);
+  $("#total-score").html(yourScore);
+}
+
+// Check for win or lose
+if (yourScore===matchNumber) {
+  // console.log("You win!");
+  win++;
+  $("#wins").html(win);
+  gameReset();
+  startGame();
+}
+
+else if (yourScore > matchNumber) {
+  // console.log ("You lose.")
+  lose++;
+  $("#losses").html(lose);
+  gameReset();
+  startGame();
+}
+
+}); //end of "on click" 
+
+}); //ending of document.ready()
+</SCRIPT>
+</body>
+</html>
